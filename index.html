@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        
+    
+       body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(19, 19, 50, 0.977);
+}
+.ring{
+  display: flex;
+  position: relative;
+  border-radius: 50%;
+  border: 3px solid whitesmoke;
+  filter: brightness(380px);
+  height: 400px;
+  left: 20px;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  overflow: visible;
+  inset: -10px;
+}
+.ball {
+  height: 360px;
+  aspect-ratio: 1/1;
+  border-radius: 50% ;
+  background: rgb(43, 43, 108);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+@property --deg {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+.ball::before,
+.ball::after {
+  content: "";
+  position: absolute;
+  inset: -10px; /* creates border space */
+  border-radius: inherit;
+  background: conic-gradient(
+  from var(--deg) at center,
+  #00eaff 0%,  
+
+  #ff00ff 20%, 
+  #00eaff 50%, 
+   
+  #ff00ff 75%,  
+  #00eaff 100%  
+);  animation: autoRotate 7s linear infinite;
+  z-index: -1; 
+}
+
+.ball::after {
+  filter: blur(55px); /* glow effect */
+  opacity: 1;
+  
+}
+
+@keyframes autoRotate {
+  to {
+    --deg: 360deg;
+  }
+}
+ .ball .ppp{
+  height: 360px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 1000px;
+ }
+ </style>
+
+
+<body>
+   <div class="ring">
+    <div class="ball">
+      <img class="ppp" src="dj.png" alt="">
+    </div>
+    </div>
+   
+</body>
+</html>
